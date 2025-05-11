@@ -1,0 +1,42 @@
+{
+  "pt": {
+    "voltar": "← Voltar ao mapa",
+    "descricao": "Descrição",
+    "proximo": "Próximo ▶",
+    "anterior": "◀ Anterior",
+    "ver_mais": "Ver mais",
+    "nao_disponivel": "Descrição não disponível."
+  },
+  "en": {
+    "voltar": "← Back to map",
+    "descricao": "Description",
+    "proximo": "Next ▶",
+    "anterior": "◀ Previous",
+    "ver_mais": "See more",
+    "nao_disponivel": "Description not available."
+  },
+  "fr": {
+    "voltar": "← Retour à la carte",
+    "descricao": "Description",
+    "proximo": "Suivant ▶",
+    "anterior": "◀ Précédent",
+    "ver_mais": "Voir plus",
+    "nao_disponivel": "Description non disponible."
+  },
+  "de": {
+    "voltar": "← Zurück zur Karte",
+    "descricao": "Beschreibung",
+    "proximo": "Weiter ▶",
+    "anterior": "◀ Zurück",
+    "ver_mais": "Mehr anzeigen",
+    "nao_disponivel": "Beschreibung nicht verfügbar."
+  },
+  "es": {
+    "voltar": "← Volver al mapa",
+    "descricao": "Descripción",
+    "proximo": "Siguiente ▶",
+    "anterior": "◀ Anterior",
+    "ver_mais": "Ver más",
+    "nao_disponivel": "Descripción no disponible."
+  }
+}

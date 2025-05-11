@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detalhes do ponto</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .media-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    iframe, audio {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 300px;
+      margin: 20px 0;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #voltar {
+      float: right;
+      background: #4B0082;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      #voltar {
+        float: none;
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="media-container">
+    <a href="index.html" id="voltar">← Voltar ao mapa</a>
+    <h1 id="titulo"></h1>
+    <section id="descricao-container" style="margin-top:20px; padding:10px 20px; background:#f7f7f7; border-radius:6px;">
+      <h2 id="descricao-titulo">Descrição</h2>
+      <p id="descricao">...</p>
+    </section>
+    <div class="swiper">
+      <div class="swiper-wrapper" id="galeria"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <div id="video"></div>
+    <div id="audio"></div>
+  </div>
+</body>
+</html>

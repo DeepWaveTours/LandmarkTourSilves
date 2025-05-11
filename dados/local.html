@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <title>Detalhes do ponto</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      margin-top: 0;
+    }
+    .swiper {
+      width: 100%;
+      max-width: 800px;
+      height: 400px;
+      margin: 20px auto;
+    }
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .media-container {
+      max-width: 800px;
+      margin: 20px auto;
+      position: relative;
+    }
+    iframe, audio {
+      width: 100%;
+      margin-top: 10px;
+    }
+    #voltar {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: #4B0082;
+      color: white;
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="media-container">
+    <a href="index.html" id="voltar">← Voltar ao mapa</a>
+    <h1 id="titulo"></h1>
+    <section id="descricao-container" style="margin-top:20px; padding:10px 20px; background:#f7f7f7; border-radius:6px;">
+      <h2 id="descricao-titulo">Descrição</h2>
+      <p id="descricao">...</p>
+    </section>
+    <div class="swiper">
+      <div class="swiper-wrapper" id="galeria"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <div id="video"></div>
+    <div id="audio"></div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const idiomasSuportados = ["pt", "en", "fr", "de", "es"];
+    let lang = localStorage.getItem("lang") || navigator.language.slice(0, 2);
+    if (!idiomasSuportados.includes(lang)) lang = "pt";
+
+    const traducoes = {
+      pt: { voltar: "← Voltar ao mapa", descricao: "Descrição" },
+      en: { voltar: "← Back to map", descricao: "Description" },
+      fr: { voltar: "← Retour à la carte", descricao: "Description" },
+      de: { voltar: "← Zurück zur Karte", descricao: "Beschreibung" },
+      es: { voltar: "← Volver al mapa", descricao: "Descripción" }
+    };
+
+    async function carregarDetalhes() {
+      const params = new URLSearchParams(window.location.search);
+      const id = parseInt(params.get("id")) || 0;
+      const resposta = await fetch("dados/pontos.json");
+      const pontos = await resposta.json();
+      const ponto = pontos[id];
+      if (!ponto) {
+        document.body.innerHTML = "<h2>Ponto não encontrado.</h2>";
+        return;
+      }
+
+      document.title = ponto.nome + " – Landmark Tour";
+      document.getElementById("titulo").textContent = ponto.nome;
+      document.getElementById("descricao-titulo").textContent = traducoes[lang].descricao;
+      document.getElementById("voltar").textContent = traducoes[lang].voltar;
+
+      const prefixo = ponto.nome.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/\s+/g, "-").replace(/ç/g, "c");
+      const pastaNome = `${id + 1}-${prefixo}`;
+
+      const galeria = document.getElementById("galeria");
+      for (let i = 1; i <= 5; i++) {
+        const slide = document.createElement("div");
+        slide.className = "swiper-slide";
+        slide.innerHTML = `<img src="media/locais-images/${pastaNome}/${prefixo}${i}.jpg" alt="Imagem ${i}">`;
+        galeria.appendChild(slide);
+      }
+
+      new Swiper(".swiper", {
+        loop: true,
+        pagination: { el: ".swiper-pagination" },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        }
+      });
+
+      if (ponto.video) {
+        document.getElementById("video").innerHTML = `
+          <iframe height="315" src="${ponto.video}" frameborder="0" allowfullscreen></iframe>
+        `;
+      }
+
+      if (ponto.audio) {
+        document.getElementById("audio").innerHTML = `
+          <audio controls>
+            <source src="${ponto.audio}" type="audio/mpeg">
+            O teu navegador não suporta áudio.
+          </audio>
+        `;
+      }
+
+      try {
+        const descResp = await fetch(`dados/descricoes/descricao-${id + 1}-${lang}.txt`);
+        if (!descResp.ok) throw new Error();
+        const descLonga = await descResp.text();
+        document.getElementById("descricao").textContent = descLonga;
+      } catch (e) {
+        document.getElementById("descricao").textContent = traducoes[lang].descricao + " não disponível.";
+      }
+
+    }
+
+    carregarDetalhes();
+  </script>
+</body>
+</html>

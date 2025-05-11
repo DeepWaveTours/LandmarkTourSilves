@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Landmark Tour</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+  
+    .circulo-numero {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      background-color: #e68a00;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 20px;
+      border-radius: 50%;
+      transition: background-color 0.3s;
+    }
+
+    .item-ativo .circulo-numero {
+      background-color: #4B0082;
+    }
+
+  #sidebar {
+      width: 250px;
+      background: #f8f8f8;
+      padding: 10px;
+      box-sizing: border-box;
+      float: left;
+      height: 100%;
+      overflow-y: auto;
+      border-right: 1px solid #ccc;
+      position: relative; /* IMPORTANTE para posicionar o rodapé */
+    }
+  #rodape {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      text-align: right;
+      width: calc(100% - 20px); /* margem total = 10px esquerda + 10px direita */
+    }
+  
+  #map-container {
+      margin-left: 250px;
+      height: 100%;
+      position: relative;
+      visibility: hidden; /* Oculta até carregamento */
+    }
+
+  #map {
+      width: 100%;
+      height: 100%;
+    }
+  
+  #controles {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.9);
+      padding: 10px;
+      border-radius: 8px;
+      z-index: 5;
+    }
+  
+    #lista-pontos {
+      list-style: none;
+      padding: 0;
+      margin-top: 14px;
+    }
+  
+    #lista-pontos li {
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+      cursor: pointer;
+      font-size: 12px; /* ← adiciona ou ajusta aqui */
+    }
+  
+    #lista-pontos li:hover {
+      background-color: #eee;
+    }
+  
+    #logo-municipio {
+      max-width: 35%;
+      margin-bottom: 10px;
+    }
+        
+    #logo-deepwave {
+      height: 40px;
+    }
+
+    #lang-select {
+      padding: 4px 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      background-color: #fff;
+      color: #333;
+      cursor: pointer;
+      appearance: none;
+    }
+
+    #lang-select:focus {
+      outline: none;
+      border-color: #4B0082;
+      box-shadow: 0 0 5px rgba(75, 0, 130, 0.5);
+    }
+
+  </style>
+  <script src="lang.js"></script>
+
+ </head>
+ <body>
+  <div id="sidebar">
+    <img src="media/logocmlagos_azul.png" id="logo-municipio" alt="Município de Lagos">
+    <ul id="lista-pontos"></ul>
+    
+    <div id="rodape">
+      <img src="media/DW-side-background-blue512x512.png" id="logo-deepwave" alt="Deep Wave">
+    </div>
+  </div>
+  
+
+  <div id="map-container">
+    <div id="map"></div>
+
+  <div id="controles">
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <div style="margin-bottom: 5px;">
+      <button id="btnAnterior">◀ <span id="txtAnterior">Anterior</span></button>
+      <button id="btnProximo"><span id="txtProximo">Próximo</span> ▶</button>
+    </div>
+    <div>
+      <label for="lang-select" style="margin-right: 4px;">🌐</label>
+      <select id="lang-select" onchange="mudarIdioma(this.value)">
+        <option value="pt">Português</option>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+        <option value="es">Español</option>
+      </select>
+    </div>
+  </div>
+  </div>
+
+  </div>
+
+  <!-- Script Google Maps -->
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxz_9w838se6b69jLd_QjFLY54tMIWaVU&callback=initMap">
+  </script>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
+

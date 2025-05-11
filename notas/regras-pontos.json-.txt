@@ -1,0 +1,79 @@
+📁 Estrutura dos ficheiros e nomes — como funciona
+O sistema que implementámos gera automaticamente os caminhos para as imagens da galeria com base no nome do ponto. Ou seja:
+
+🔁 Geração automática do caminho
+O código transforma:
+
+js
+Copy
+Edit
+ponto.nome = "Forte da Ponta da Bandeira"
+em:
+
+js
+Copy
+Edit
+// Pasta onde devem estar as imagens:
+media/locais-images/1-forte-da-ponta-da-bandeira/
+
+// Ficheiros esperados:
+forte-da-ponta-da-bandeira1.jpg
+forte-da-ponta-da-bandeira2.jpg
+forte-da-ponta-da-bandeira3.jpg
+forte-da-ponta-da-bandeira4.jpg
+forte-da-ponta-da-bandeira5.jpg
+Este comportamento é gerado automaticamente com este trecho no local.html:
+
+js
+Copy
+Edit
+const pastaNome = `${id + 1}-${ponto.nome.replace(/\s+/g, "-")}`;
+e
+
+js
+Copy
+Edit
+const prefixo = slugify(ponto.nome);
+🧠 Regras a seguir para evitar problemas
+Sempre que criares um novo ponto no pontos.json, segue estas regras:
+
+1. 🗂️ Nome da pasta
+Formato obrigatório:
+
+cpp
+Copy
+Edit
+{id}-{nome-do-ponto-em-kebab-case}
+📌 Exemplo:
+
+Nome do ponto no JSON: "Castelo de Lagos"
+
+ID (posição no array): 3 (começa no 0)
+
+Pasta correta: 4-castelo-de-lagos
+
+2. 🖼️ Nome dos ficheiros de imagem
+Formato obrigatório:
+
+cpp
+Copy
+Edit
+{nome-do-ponto-em-kebab-case}{1..5}.jpg
+📌 Exemplo:
+
+Nome base: castelo-de-lagos
+
+Ficheiros esperados:
+
+python-repl
+Copy
+Edit
+castelo-de-lagos1.jpg
+castelo-de-lagos2.jpg
+...
+🧰 Ferramenta opcional (no futuro)
+Se quiseres automatizar esta criação, posso ajudar-te a criar um pequeno script em Python que:
+
+Gere as pastas corretas
+
+Renomeie as imagens para os nomes certos

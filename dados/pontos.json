@@ -1,0 +1,109 @@
+[
+  
+  {
+  "nome": "Forte da Ponta da Bandeira",
+  "descricao": {
+    "pt": "Um marco histórico localizado em Lagos.",
+    "en": "A historic landmark located in Lagos.",
+    "fr": "Un point de repère historique situé à Lagos.",
+    "de": "Ein historisches Wahrzeichen in Lagos.",
+    "es": "Un hito histórico ubicado en Lagos."
+  },
+  "latitude": 37.098927,
+  "longitude": -8.668308,
+  "imagem": "media/forte-ponta-bandeira.jpg",
+  "video": "https://www.youtube.com/embed/Bbzn27qqHJM",
+  "audio": "media/forte.mp3"
+  },
+  {
+  "nome": "Cais da Solaria",
+  "descricao": {
+    "pt": "Um marco histórico localizado em Lagos.",
+    "en": "A historic landmark located in Lagos.",
+    "fr": "Un point de repère historique situé à Lagos.",
+    "de": "Ein historisches Wahrzeichen in Lagos.",
+    "es": "Un hito histórico ubicado en Lagos."
+  },
+  "latitude": 37.098710,
+  "longitude": -8.666766,
+  "imagem": "media/cais-solaria.jpg",
+  "video": "https://www.youtube.com/embed/Bbzn27qqHJM",
+  "audio": "media/forte.mp3"
+},
+{
+  "nome": "Miradouro da Praia da Batata",
+  "descricao": {
+    "pt": "Um miradouro com vista sobre a Praia da Batata.",
+    "en": "A viewpoint overlooking Praia da Batata.",
+    "fr": "Un point de vue sur la plage de Batata.",
+    "de": "Ein Aussichtspunkt mit Blick auf den Strand Praia da Batata.",
+    "es": "Un mirador con vistas a la Playa da Batata."
+  },
+  "latitude": 37.098071,
+  "longitude": -8.668466,
+  "imagem": "media/miradouro-praia-batata.jpg",
+  "video": "https://www.youtube.com/embed/Bbzn27qqHJM",
+  "audio": "media/forte.mp3"
+},
+{
+  "nome": "Castelo de Lagos",
+  "descricao": {
+    "pt": "Ruínas do antigo castelo que protegia Lagos.",
+    "en": "Ruins of the old castle that once protected Lagos.",
+    "fr": "Ruines de l'ancien château qui protégeait Lagos.",
+    "de": "Ruinen der alten Burg, die Lagos einst schützte.",
+    "es": "Ruinas del antiguo castillo que protegía Lagos."
+  },
+  "latitude": 37.099796,
+  "longitude": -8.669863,
+  "imagem": "media/castelo-governadores-lagos.jpg",
+  "video": "https://www.youtube.com/embed/Bbzn27qqHJM",
+  "audio": "media/forte.mp3"
+},
+{
+  "nome": "Jardim da Constituição",
+  "descricao": {
+    "pt": "Um jardim público tranquilo no centro histórico.",
+    "en": "A peaceful public garden in the historic centre.",
+    "fr": "Un jardin public paisible au centre historique.",
+    "de": "Ein ruhiger öffentlicher Garten im historischen Zentrum.",
+    "es": "Un jardín público tranquilo en el centro histórico."
+  },
+  "latitude": 37.100389,
+  "longitude": -8.670036,
+  "imagem": "media/jardim-constituicao-lagos.jpg",
+  "video": "https://www.youtube.com/embed/Bbzn27qqHJM",
+  "audio": "media/forte.mp3"
+},
+{
+  "nome": "Igreja de Santa Maria de Lagos",
+  "descricao": {
+    "pt": "Igreja histórica com fachada neoclássica.",
+    "en": "Historic church with a neoclassical façade.",
+    "fr": "Église historique à la façade néoclassique.",
+    "de": "Historische Kirche mit neoklassizistischer Fassade.",
+    "es": "Iglesia histórica con fachada neoclásica."
+  },
+  "latitude": 37.100089,
+  "longitude": -8.670594,
+  "imagem": "media/igreja-santa-maria-lagos.jpg",
+  "video": "https://www.youtube.com/embed/Bbzn27qqHJM",
+  "audio": "media/forte.mp3"
+},
+{
+  "nome": "Mercado Municipal de Lagos",
+  "descricao": {
+    "pt": "Mercado tradicional com produtos locais frescos.",
+    "en": "Traditional market with fresh local products.",
+    "fr": "Marché traditionnel avec des produits locaux frais.",
+    "de": "Traditioneller Markt mit frischen lokalen Produkten.",
+    "es": "Mercado tradicional con productos locales frescos."
+  },
+  "latitude": 37.104191,
+  "longitude": -8.673097,
+  "imagem": "media/mercado-municipal-lagos.jpg",
+  "video": "https://www.youtube.com/embed/Bbzn27qqHJM",
+  "audio": "media/forte.mp3"
+}
+]
+  
